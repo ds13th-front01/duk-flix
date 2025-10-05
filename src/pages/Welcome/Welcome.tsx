@@ -15,6 +15,7 @@ interface FAQData {
   linkUrl?: string;
 }
 
+// FAQ 리스트
 const faqData: FAQData[] = [
   {
     id: 1,
@@ -62,6 +63,7 @@ export default function Welcome(): React.JSX.Element {
   const [openDataId, setOpenDataId] = useState<number | null>(null);
   const navigate: NavigateFunction = useNavigate();
 
+  // EmailInput을 사용하기 위해 임의로 변수 선언
   const isPending = false;
 
   const onSubmit = (e: React.FormEvent) => {
@@ -1389,6 +1391,7 @@ export default function Welcome(): React.JSX.Element {
                     </S.FAQBox>
                     <S.FAQContent $isOpen={isOpen}>
                       {item.answer}
+                      {/* 링크 걸린 텍스트가 있는 경우에만 따로 렌더링 */}
                       {item.linkText && item.linkUrl && (
                         <>
                           <a href={item.linkUrl}>{item.linkText}</a>
